@@ -31,10 +31,6 @@ input[type='text']{
         <div class="button-panel">
 		        <input type="submit" class="button" title="Log In" name="login" value="Login"></input>
         </div>
-        <div style="text-align: center;">
-            <a href = "http://www.sksbvstate.com" style = "text-decoration: none;color:goldenrod;font-size: 1.2em">BACK TO HOME</a>
-        </div>
-
       </form>
 
       </div>

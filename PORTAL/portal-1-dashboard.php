@@ -19,6 +19,7 @@ $userrow=mysqli_fetch_array($user);
   <div class="rel">
       <div class="content">
           <img src="../version.png" alt="versions" style="align-self: center;">
+
       </div>
   </div>
   </body>

@@ -25,9 +25,24 @@ $userrow=mysqli_fetch_array($user);
     <div class="content">
       <h3>UNIT REGISTRATION DASHBOARD</h3><br><br>
       <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">Overview</div>
+                      <div class="panel-body" style="font-size: x-large;color: goldenrod">
+                                      TOTAL UNITS REGISTERED :
+                                      <?php
+                                      $query = mysqli_query($con,"SELECT * FROM unitregister");
+                                      $numb = mysqli_num_rows($query);
+                                      echo "$numb";
+                                      ?>
+                      </div>
+                  </div>
+              </div>
+          </div>
         <div class="row">
-          <div class="col-sm-3">
-            <div class="panel panel-primary">
+          <div class="col-sm-4">
+            <div class="panel panel-danger" style="height: 48%;">
               <div class="panel-heading custom_class">DISTRICT WISE LIST</div>
               <div class="panel-body">
                 <form action="unitlistdistrictwise.php" method="post" id="districtlist">
@@ -62,8 +77,8 @@ $userrow=mysqli_fetch_array($user);
           </DIV>
 
 
-          <div class="col-sm-3">
-            <div class="panel panel-primary">
+          <div class="col-sm-4">
+            <div class="panel panel-danger" style="height: 48%;">
               <div class="panel-heading custom_class">RANGE WISE LIST</div>
               <div class="panel-body">
                 <form action="rangewiseunitlist.php" method="post">
@@ -80,7 +95,7 @@ $userrow=mysqli_fetch_array($user);
 
 
           <div class="col-sm-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger" style="height: 48%;">
               <div class="panel-heading custom_class">INDIVIDUAL UNIT DETAILS</div>
               <div class="panel-body">
 
@@ -108,7 +123,7 @@ $userrow=mysqli_fetch_array($user);
 
           <div class=" row">
               <div class = "col-sm-12">
-                  <div class = "panel panel-primary">
+                  <div class = "panel panel-danger">
                       <div class = "panel-heading custom_class">STATE UNIT LIST</div>
                       <div class="panel-body">
                           <h3 style = "text-align: center;text-decoration: none;"><a href="stateunitlist.php">LOAD LIST</a></h3>

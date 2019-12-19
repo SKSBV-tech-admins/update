@@ -36,7 +36,7 @@ if (isset($_POST['proceed'])) {
     <div class="rel">
     <div class="content">
       <h3>UNIT REGISTRATION PORTAL</h3><br><br>
-      <form action="#" method="post">
+      <form action="#" method="post" id="unitreg">
         <div class="container">
           <div class="row">
             <div class="col-sm-9">
@@ -88,8 +88,32 @@ if (isset($_POST['proceed'])) {
           <div class="row">
             <div class="col-sm-8">
               <label for="mdistrict">DISTRICT</label>
-              <input type="text" class=form-control name=mdistrict
-              value="<?php echo $verifydata['district'];?>" style="max-width:300;">
+                <div class="alert alert-info">
+                    Given District : <?php echo $verifydata['district'];?><br>
+                    Select it below.
+                </div>
+                <select class=form-control name=mdistrict required
+                        style="max-width:300;" form="unitreg">
+                    <option value="KASARAKODE">KASARAKODE</option>
+                    <option value="KANNUR">KANNUR</option>
+                    <option value="KOZHIKKODE">KOZHIKKODE</option>
+                    <option value="WAYANAD">WAYANAD</option>
+                    <option value="MALAPPURAM WEST">MALAPPURAM WEST</option>
+                    <option value="MALAPPURAM EAST">MALAPPURAM EAST</option>
+                    <option value="PALAKKAD">PALAKKAD</option>
+                    <option value="THRISSUR">THRISSUR</option>
+                    <option value="IDUKKI">IDUKKI</option>
+                    <option value="ERNAKULAM">ERNAKULAM</option>
+                    <option value="KOTTAYAM">KOTTAYAM</option>
+                    <option value="ALAPPUZHA">ALAPPUZHA</option>
+                    <option value="THIRUVANANTHAPURAM">THIRUVANANTHAPURAM</option>
+                    <option value="DAKSHINA KANNADA">DAKSHINA KANNADA</option>
+                    <option value="ANDAMAN">ANDAMAN</option>
+                    <option value="NILGRIES">NILGRIES</option>
+                    <option value="KODAGU">KODAGU</option>
+                    <option value="LADSHADWEEP">LADSHADWEEP</option>
+                    <option value="KANYAKUMARI">KANYAKUMARI</option>
+                </select>
               <br>
             </div>
           </div>
