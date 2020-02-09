@@ -49,9 +49,9 @@ $userrow=mysqli_fetch_array($user);
                   <label for="district">DISTRICT</label>
                   <select class=form-control name=district required
                    style="max-width:300;" form="districtlist">
-                   <option value="KASARAKODE">KASARAKODE</option>
+                   <option value="KASARKODE">KASARKODE</option>
                    <option value="KANNUR">KANNUR</option>
-                   <option value="KOZHIKKODE">KOZHIKKODE</option>
+                   <option value="KOZHIKODE">KOZHIKODE</option>
                    <option value="WAYANAD">WAYANAD</option>
                    <option value="MALAPPURAM WEST">MALAPPURAM WEST</option>
                    <option value="MALAPPURAM EAST">MALAPPURAM EAST</option>
@@ -63,10 +63,10 @@ $userrow=mysqli_fetch_array($user);
                    <option value="ALAPPUZHA">ALAPPUZHA</option>
                    <option value="THIRUVANANTHAPURAM">THIRUVANANTHAPURAM</option>
                    <option value="DAKSHINA KANNADA">DAKSHINA KANNADA</option>
-                   <option value="ANDAMAN">ANDAMAN</option>
-                   <option value="NILGRIES">NILGRIES</option>
+                   <option value="CHICKMANGALORE">CHICKMANGALORE</option>
+                   <option value="NILGIRI">NILGIRI</option>
                    <option value="KODAGU">KODAGU</option>
-                   <option value="LADSHADWEEP">LADSHADWEEP</option>
+                   <option value="LAKSHADEEP">LAKSHADEEP</option>
                    <option value="KANYAKUMARI">KANYAKUMARI</option>
                  </select>
                   <br>
@@ -108,7 +108,7 @@ $userrow=mysqli_fetch_array($user);
                 </FORM>
 
 
-                <form action="unitdetails.php" method="post" name=unitdetailsksbv>
+                <form action="unitdetails.php" method="get" name=unitdetailsksbv>
                   <label for="sbvid">SKSBV REGISTER NUMBER</label>
                   <input type="number" class=form-control name=sbvid required
                   placeholder="SKSBV REGISTER NUMBER" style="max-width:300;">
@@ -120,6 +120,33 @@ $userrow=mysqli_fetch_array($user);
             </DIV>
           </DIV>
         </div>
+
+          <div class="row">
+              <div class="col-sm-4">
+                  <div class = "panel panel-success">
+                      <div class = "panel-heading custom_class">UPDATED UNITS</div>
+                      <div class="panel-body">
+                          <a href="error.php">GET LIST</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                  <div class = "panel panel-warning">
+                      <div class = "panel-heading custom_class">INACTIVE UNITS</div>
+                      <div class="panel-body">
+                          <a href="error.php">GET LIST</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                  <div class = "panel panel-danger">
+                      <div class = "panel-heading custom_class">BLOCKED UNITS</div>
+                      <div class="panel-body">
+                          <a href="error.php">GET LIST</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
           <div class=" row">
               <div class = "col-sm-12">

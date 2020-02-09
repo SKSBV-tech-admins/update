@@ -113,3 +113,44 @@ h3{
 }.rel{
   position: relative;
    }
+
+
+.slip{
+  width:320px;
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  margin: -184px 0px 0px -155px;
+  background: #ffffff;
+  padding: 15px 25px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #000000;
+  color: #333333;
+  opacity: 0.89;
+  text-align: center;
+}#status{
+   width:100%;
+   vertical-align: center;
+   text-align: center;
+   color: aliceblue;
+   font-weight: bold;
+   font-size: x-large;
+   padding: 2%;
+   border-radius: inherit;
+ }.number{
+  padding: 1%;
+  color: blueviolet;
+  text-align: left;
+  border-bottom: 3px dashed blueviolet;
+   }.number input,select{
+  height:50px;
+   }.number input[type=submit]{
+  background: blueviolet;
+  color: aliceblue;
+  border: none;
+  border-radius: 8px;
+  transition:all 1s ease;
+  }.number input[type=submit]:hover{
+  background:cadetblue;
+  color:blueviolet;
+              }

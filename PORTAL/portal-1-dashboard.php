@@ -18,7 +18,48 @@ $userrow=mysqli_fetch_array($user);
     <?php include('navigation.php');?>
   <div class="rel">
       <div class="content">
-          <img src="../version.png" alt="versions" style="align-self: center;">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">Overview</div>
+                          <div class="panel-body" style="font-size: x-large;color: goldenrod">
+                              <div class="alert alert-info" style="font-size: x-large;">
+                                  TOTAL UNITS REGISTERED :
+                                  <?php
+                                  $query = mysqli_query($con,"SELECT * FROM unitregister");
+                                  $numb = mysqli_num_rows($query);
+                                  echo "$numb";
+                                  ?>
+                              </div>
+                              <div class="alert alert-success" style="font-size: x-large;">
+                                  UPDATED UNITS :
+                                  <?php
+                                  $query = mysqli_query($con,"SELECT * FROM unitregister WHERE status='ACTIVE'");
+                                  $numb = mysqli_num_rows($query);
+                                  echo "$numb";
+                                  ?>
+                              </div>
+                              <div class="alert alert-warning" style="font-size: x-large;">
+                                  PENDING UNITS :
+                                  <?php
+                                  $query = mysqli_query($con,"SELECT * FROM unitregister WHERE status='INACTIVE'");
+                                  $numb = mysqli_num_rows($query);
+                                  echo "$numb";
+                                  ?>
+                              </div>
+                              <div class="alert alert-danger" style="font-size: x-large;">
+                                  BLOCKED UNITS :
+                                  <?php
+                                  $query = mysqli_query($con,"SELECT * FROM unitregister WHERE status='BLOCKED'");
+                                  $numb = mysqli_num_rows($query);
+                                  echo "$numb";
+                                  ?>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
       </div>
   </div>

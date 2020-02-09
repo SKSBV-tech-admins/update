@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost","sksbvstate","J7r!xeRn@eG8","sksbvstate_sksbvupdate2k19");
+$con = mysqli_connect("localhost","root","","sksbv_update");
 
 // Check connection
 if (mysqli_connect_errno())

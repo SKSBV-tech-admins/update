@@ -12,6 +12,21 @@ $userrow = mysqli_fetch_array($user);
     <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('#list td#stat').each(function(){
+                if ($(this).text() == 'BLOCKED') {
+                    $(this).css('background-color','#f00');
+                }
+                if ($(this).text() == 'INACTIVE') {
+                    $(this).css('background-color','orange');
+                }
+            });
+        });
+
+    </script>
     <style>
         .heading {
             width: 100%;
@@ -54,7 +69,7 @@ $userrow = mysqli_fetch_array($user);
                 <th>Place</th>
               <th>Range</th>
               <td>Range No.</td>
-              <td>Phone</td>
+              <td>Status</td>
 
             </tr>
           </thead>
@@ -64,7 +79,7 @@ $userrow = mysqli_fetch_array($user);
                     $list = mysqli_query($con, "SELECT * FROM unitregister WHERE district='$distr' ORDER BY sksbvregno ASC");
                     while ($array = mysqli_fetch_array($list)) {
                         $i = $i + 1;
-                        echo "<tr>
+                        echo "<tr id='back' onloadeddata='colourChanger()'>
                               <td>$i</td>
                                 <td>$array[sksbvregno]</td>
                                 <td>$array[madname]</td>
@@ -72,8 +87,9 @@ $userrow = mysqli_fetch_array($user);
                                 <td>$array[place]</td>
                                 <td>$array[range]</td>
                                 <td>$array[rangeno]</td>
-                                <td>$array[phone]</td>
-                            </tr>";
+                                <td><span id='stat'>$array[status]</span></td>
+                            </tr>
+                            ";
                     }
                 } else {
                     echo "<tr><td colspan=8><center>No units found!</center></td></tr>";
@@ -82,6 +98,19 @@ $userrow = mysqli_fetch_array($user);
             }
             ?>
         </table>
+        <script>
+            function colourChanger(){
+                myElement = document.getElementById('stat')
+                myBack = document.getElementById('back')
+                if(myElement.innerText=='ACTIVE')
+                    myBack.style.backgroundColor='green'
+                if(myElement.innerText=='INACTIVE')
+                    myBack.style.backgroundColor='orange'
+                if(myElement.innerText=='BLOCKED')
+                    myBack.style.backgroundColor='red'
+            }
+        </script>
+
 
     </div>
 </div>

@@ -48,11 +48,10 @@ $userrow=mysqli_fetch_array($user);
                 <th>SKSBV REG.NO.</th>
                 <th>Madrassa</th>
                 <th>Reg. No.</th>
-                <th>Place</th>
                 <th>Range</th>
-                <td>Range No.</td>
-                <td>Phone</td>
-
+                <th>Range No.</th>
+                <th>District</th>
+                <th>Status</th>
             </tr>
             </thead>
             <tbody>
@@ -70,10 +69,10 @@ $userrow=mysqli_fetch_array($user);
                                 <td>$array[sksbvregno]</td>
                                 <td>$array[madname]</td>
                                 <td>$array[madno]</td>
-                                <td>$array[place]</td>
                                 <td>$array[range]</td>
                                 <td>$array[rangeno]</td>
-                                <td>$array[phone]</td>
+                                <td>$array[district]</td>
+                                <td>$array[status]</td>
                             </tr>";
                     }
                 }

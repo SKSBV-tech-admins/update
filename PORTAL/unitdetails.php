@@ -5,8 +5,8 @@ include('../session.php');
 $user=mysqli_query($con, "SELECT * from admins where id='$session_id'")or die('Session logged out');
 $userrow=mysqli_fetch_array($user);
 
-if (isset($_POST['unitsksbv'])) {
-    $sksbvregno=$_POST['sbvid'];
+if (isset($_GET['sbvid'])) {
+    $sksbvregno=$_GET['sbvid'];
     $numrow=mysqli_query($con, "SELECT count(*) FROM unitregister where sksbvregno='$sksbvregno'");
     $numrowarray=mysqli_fetch_array($numrow);
     $num=$numrowarray['count(*)'];
@@ -25,7 +25,8 @@ if (isset($_POST['unitsksbv'])) {
         $range=$unitdata['range'];
         $rangeno=$unitdata['rangeno'];
         $district=$unitdata['district'];
-        $phone=$unitdata['phone'];
+        $stat=$unitdata['status'];
+        $remark = $unitdata['remark'];
     }
 
 }
@@ -33,94 +34,32 @@ if (isset($_POST['unitsksbv'])) {
 
 ?>
 <html>
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>SKSBV|UPDATE - 2k19</title>
     <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
-    <style>
-        .row{
-            padding: 1%;
-        }
-    </style>
+    <script src="https://kit.fontawesome.com/01c15ec4f8.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <?php include('navigation.php');?>
-<div class="rel">
-<div class="content">
-    <h3>UNIT DETAILS</h3><br><br>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <font color="white" size=4><b>SKSBV REGISTER NUMBER</b></font>
-            </div>
-            <div class="col-sm-3"><font color="white" size=4><b>: <?php echo $sksbvreg;?></font></b>
-            </div>
-        </div>
+<div class="slip">
+    <p><?php
+        if($stat=="INACTIVE"){
+            echo "<div id='status' style='background: orange;'><i class=\"fas fa-exclamation fa-3x\"></i><br>$stat</div>";
+        }elseif ($stat == "ACTIVE"){
+            echo "<div id='status' style='background: green;'><i class=\"far fa-check-circle fa-3x\"></i><br>$stat</div>";
+        }elseif ($stat == "BLOCKED"){
+            echo "<div id='status' style='background: red;'><i class=\"fas fa-skull-crossbones fa-3x\"></i><br>$stat</div>";
+        }?></p>
+    <h1><?php echo $sksbvreg; ?></h1>
+    <h4><?php echo $madname ?></h4>
+    <p>SKIMVB Register Number: <?php echo $madreg; ?></p>
+    <p>RANGE : <?php echo $range." - ".$rangeno; ?></p>
+    <p>DISTRICT : <?php echo $district;?></p>
+    <p>REMARK : <?php echo $remark;?></p><br>
+    <p><a href="unitupdate.php?id=<?php echo $sksbvreg;?>"><button class="button">UPDATE</button></a></p>
 
-        <div class="row">
-            <div class="col-sm-3">
-                <font color="white">SKIMVB REGISTER NUMBER  </font></div>
-            <div class="col-sm-3">
-                : <?php echo $madreg;?>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <font color="white">NAME OF MADRASSA</font>
-            </div>
-            <div class="col-sm-3">
-                : <?php echo $unitdata['madname'];?>
-            </div>
-            <br>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <font color="white">PLACE</font>
-            </div>
-            <div class="col-sm-3">
-                : <?php echo $unitdata['place'];?>
-            </div>
-            <br>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <font color="white">RANGE REG. NUMBER</font>
-            </div>
-            <div class="col-sm-3">
-                : <?php echo $unitdata['rangeno'];?>
-            </div>
-            <br>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <font color="white">RANGE</font>
-            </div>
-            <div class="col-sm-3">
-                : <?php echo $unitdata['range'];?>
-            </div>
-            <br>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <font color="white">PHONE NUMBER</font>
-            </div>
-            <div class="col-sm-3">
-                : <?php echo $unitdata['phone'];?>
-            </div>
-            <br>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <font color="white">DISTRICT</font>
-            </div>
-            <div class="col-sm-3">
-                : <?php echo $unitdata['district'];?>
-            </div>
-            <br>
-        </div>
-    </div>
-</div>
 </div>
 </body>
 </html>
